@@ -16,9 +16,9 @@ a{color:var(--az);text-decoration:none;transition:color .2s}
 a:hover{color:var(--azd)}
 
 /* NAV */
-.nv{position:fixed;top:0;left:0;right:0;width:100%;height:64px;margin:0;padding:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:box-shadow .3s;box-sizing:border-box}
-.nv.sc{box-shadow:0 1px 16px rgba(0,0,0,.04)}
-.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid var(--rule);box-sizing:border-box}
+.nv{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:box-shadow .3s}
+.nv.scrolled{box-shadow:0 1px 16px rgba(0,0,0,.04)}
+.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid var(--rule)}
 .logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;flex-shrink:0}
 .logo img{width:32px;height:32px;object-fit:contain;flex-shrink:0}
 .logo-t{font-weight:700;font-size:.95rem;color:var(--ink);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
@@ -367,7 +367,7 @@ section{padding:6rem 3rem}
 <div class="di"><div class="di-in"><p>This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. Investments in emerging markets carry additional risks including currency, political, and liquidity risks.</p></div></div>
 
 <script>
-window.addEventListener('scroll',function(){document.getElementById('nv').classList.toggle('sc',window.scrollY>16)});
+window.addEventListener('scroll',function(){document.getElementById('nv').classList.toggle('scrolled',window.scrollY>16)});
 document.querySelectorAll('.rv').forEach(function(el){new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('vi')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'}).observe(el)});
 function sf(e){e.preventDefault();var f=document.getElementById('tf'),s=document.getElementById('fs'),b=f.querySelector('.bs');b.textContent='Sending...';b.disabled=true;fetch('https://formspree.io/f/xpqyrnbv',{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.style.display='none';s.style.display='block'}else{b.textContent='Request Thesis';b.disabled=false;alert('Something went wrong. Please email mwitt@serendibimpact.com directly.')}}).catch(function(){b.textContent='Request Thesis';b.disabled=false;alert('Connection error. Please email mwitt@serendibimpact.com directly.')})}
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-64,behavior:'smooth'})}})});
