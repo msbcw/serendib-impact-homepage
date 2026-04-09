@@ -16,19 +16,19 @@ a{color:var(--az);text-decoration:none;transition:color .2s}
 a:hover{color:var(--azd)}
 
 /* NAV */
-.nv{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:box-shadow .3s}
+.nv{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:box-shadow .3s}
 .nv.sc{box-shadow:0 1px 16px rgba(0,0,0,.04)}
-.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:60px;border-bottom:1px solid #D8D5D0}
-.logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
-.logo img{width:28px;height:28px;object-fit:contain}
-.logo-t{font-weight:700;font-size:1rem;color:var(--ink);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid var(--rule)}
+.logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;flex-shrink:0}
+.logo img{width:32px;height:32px;object-fit:contain;flex-shrink:0}
+.logo-t{font-weight:700;font-size:.95rem;color:var(--ink);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
 .logo-t b{color:var(--az);font-weight:700}
-.nl{display:flex;gap:2.2rem;list-style:none;align-items:center}
-.nl a{font-size:.68rem;font-weight:600;color:var(--mid);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:color .2s}
+.nl{display:flex;gap:2.5rem;list-style:none;align-items:center;flex-shrink:0}
+.nl a{font-size:.72rem;font-weight:500;color:var(--mid);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:color .2s}
 .nl a:hover{color:var(--ink)}
-.hm{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}
-.hm span{display:block;width:18px;height:1.5px;background:var(--ink)}
-.mm{display:none;position:fixed;top:60px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--rule);padding:1.2rem 3rem;z-index:99}
+.hm{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hm span{display:block;width:20px;height:1.5px;background:var(--ink)}
+.mm{display:none;position:fixed;top:64px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--rule);padding:1.2rem 3rem;z-index:99}
 .mm.open{display:block}
 .mm a{display:block;font-size:.82rem;font-weight:500;color:var(--dk);padding:.55rem 0;text-decoration:none;border-bottom:1px solid var(--rule)}
 .mm a:last-child{border:none}
@@ -60,10 +60,10 @@ section{padding:6rem 3rem}
 /* Bauhaus accent: large partial circle behind services */
 .svc-geo{position:absolute;left:-200px;bottom:-200px;width:500px;height:500px;border-radius:50%;border:1.5px solid var(--rule);pointer-events:none;opacity:.4}
 .svc .mx{position:relative;z-index:1}
-.svc-top{margin-bottom:3.5rem}
+.svc-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
 .svc-conv{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;color:var(--ink);line-height:1.2;letter-spacing:-.02em}
 .svc-conv b{color:var(--az);font-weight:700}
-.svc-sub{font-size:.86rem;color:var(--mid);line-height:1.7;max-width:440px;margin-top:.5rem}
+.svc-sub{font-size:.86rem;color:var(--mid);line-height:1.7;max-width:360px}
 .sg{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .sc{padding:2.5rem 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:80px 1fr;gap:1.5rem;align-items:start}
 .sc:nth-child(2n){padding-left:3rem;border-left:1px solid var(--rule);margin-left:-1px}
@@ -221,8 +221,12 @@ section{padding:6rem 3rem}
   <div class="mx rv">
     <div class="lb">Services</div>
     <div class="svc-top">
-      <p class="svc-conv">Good businesses need more than <b>capital.</b></p>
-        <p style="font-size:.86rem;color:#888;line-height:1.7;margin-top:.8rem">What we do.</p>
+      <div>
+        <p class="svc-conv">Good businesses need more than <b>capital.</b></p>
+      </div>
+      <div>
+        <p class="svc-sub">What we do.</p>
+      </div>
     </div>
     <div class="sg">
       <div class="sc">
@@ -355,7 +359,7 @@ section{padding:6rem 3rem}
     <div class="lb">Connect</div>
     <div class="cg">
       <div>
-        <div class="ci"><span class="cil">Email</span><span class="civ"><a href="mailto:mwitt@serendibimpact.com">mwitt@serendibimpact.com</a></span></div>
+        <div class="ci"><span class="cil">Email</span><span class="civ"><a href="/cdn-cgi/l/email-protection#b5d8c2dcc1c1f5c6d0c7d0dbd1dcd7dcd8c5d4d6c19bd6dad8"><span class="__cf_email__" data-cfemail="9af7edf3eeeedae9ffe8fff4fef3f8f3f7eafbf9eeb4f9f5f7">[email&#160;protected]</span></a></span></div>
         <div class="ci"><span class="cil">Phone</span><span class="civ"><a href="tel:+94714229098">+94 (0)71 422 9098</a></span></div>
         <div class="ci"><span class="cil">Location</span><span class="civ">Colombo, Sri Lanka</span></div>
         <div class="ci"><span class="cil">Web</span><span class="civ"><a href="https://www.serendibimpact.com">serendibimpact.com</a></span></div>
@@ -368,11 +372,8 @@ section{padding:6rem 3rem}
 <footer class="fo"><div class="fo-in"><p>&copy; 2026 Serendib Impact</p><ul class="fo-l"><li><a href="#svc">Services</a></li><li><a href="#abt">About</a></li><li><a href="#fnd">Investment</a></li><li><a href="#con">Connect</a></li></ul></div></footer>
 <div class="di"><div class="di-in"><p>This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. Investments in emerging markets carry additional risks including currency, political, and liquidity risks.</p></div></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.addEventListener('scroll',function(){document.getElementById('nv').classList.toggle('sc',window.scrollY>16)});
 document.querySelectorAll('.rv').forEach(function(el){new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('vi')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'}).observe(el)});
 function sf(e){e.preventDefault();var f=document.getElementById('tf'),s=document.getElementById('fs'),b=f.querySelector('.bs');b.textContent='Sending...';b.disabled=true;fetch('https://formspree.io/f/xpqyrnbv',{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.style.display='none';s.style.display='block'}else{b.textContent='Request Thesis';b.disabled=false;alert('Something went wrong. Please email mwitt@serendibimpact.com directly.')}}).catch(function(){b.textContent='Request Thesis';b.disabled=false;alert('Connection error. Please email mwitt@serendibimpact.com directly.')})}
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-60,behavior:'smooth'})}})});
-</script>
-</body>
-</html>
+document.querySelectorAll('a[href^="#"]').forEach(
