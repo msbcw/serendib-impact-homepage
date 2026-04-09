@@ -16,9 +16,9 @@ a{color:var(--az);text-decoration:none;transition:color .2s}
 a:hover{color:var(--azd)}
 
 /* NAV */
-.nv{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,.96);border-bottom:1px solid transparent;transition:border-color .3s}
-.nv.sc{border-bottom-color:#D8D5D0}
-.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nv{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:box-shadow .3s}
+.nv.sc{box-shadow:0 1px 16px rgba(0,0,0,.04)}
+.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:60px;border-bottom:1px solid #D8D5D0}
 .logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
 .logo img{width:28px;height:28px;object-fit:contain}
 .logo-t{font-weight:700;font-size:1rem;color:var(--ink);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
