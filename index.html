@@ -359,7 +359,7 @@ section{padding:6rem 3rem}
     <div class="lb">Connect</div>
     <div class="cg">
       <div>
-        <div class="ci"><span class="cil">Email</span><span class="civ"><a href="/cdn-cgi/l/email-protection#b5d8c2dcc1c1f5c6d0c7d0dbd1dcd7dcd8c5d4d6c19bd6dad8"><span class="__cf_email__" data-cfemail="9af7edf3eeeedae9ffe8fff4fef3f8f3f7eafbf9eeb4f9f5f7">[email&#160;protected]</span></a></span></div>
+        <div class="ci"><span class="cil">Email</span><span class="civ"><a href="mailto:mwitt@serendibimpact.com">mwitt@serendibimpact.com</a></span></div>
         <div class="ci"><span class="cil">Phone</span><span class="civ"><a href="tel:+94714229098">+94 (0)71 422 9098</a></span></div>
         <div class="ci"><span class="cil">Location</span><span class="civ">Colombo, Sri Lanka</span></div>
         <div class="ci"><span class="cil">Web</span><span class="civ"><a href="https://www.serendibimpact.com">serendibimpact.com</a></span></div>
@@ -372,8 +372,11 @@ section{padding:6rem 3rem}
 <footer class="fo"><div class="fo-in"><p>&copy; 2026 Serendib Impact</p><ul class="fo-l"><li><a href="#svc">Services</a></li><li><a href="#abt">About</a></li><li><a href="#fnd">Investment</a></li><li><a href="#con">Connect</a></li></ul></div></footer>
 <div class="di"><div class="di-in"><p>This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. Investments in emerging markets carry additional risks including currency, political, and liquidity risks.</p></div></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 window.addEventListener('scroll',function(){document.getElementById('nv').classList.toggle('sc',window.scrollY>16)});
 document.querySelectorAll('.rv').forEach(function(el){new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('vi')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'}).observe(el)});
 function sf(e){e.preventDefault();var f=document.getElementById('tf'),s=document.getElementById('fs'),b=f.querySelector('.bs');b.textContent='Sending...';b.disabled=true;fetch('https://formspree.io/f/xpqyrnbv',{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.style.display='none';s.style.display='block'}else{b.textContent='Request Thesis';b.disabled=false;alert('Something went wrong. Please email mwitt@serendibimpact.com directly.')}}).catch(function(){b.textContent='Request Thesis';b.disabled=false;alert('Connection error. Please email mwitt@serendibimpact.com directly.')})}
-document.querySelectorAll('a[href^="#"]').forEach(
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-64,behavior:'smooth'})}})});
+</script>
+</body>
+</html>
