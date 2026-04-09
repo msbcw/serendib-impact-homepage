@@ -16,9 +16,9 @@ a{color:var(--az);text-decoration:none;transition:color .2s}
 a:hover{color:var(--azd)}
 
 /* NAV */
-.nv{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:box-shadow .3s}
+.nv{position:fixed;top:0;left:0;right:0;width:100%;height:64px;margin:0;padding:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:box-shadow .3s;box-sizing:border-box}
 .nv.sc{box-shadow:0 1px 16px rgba(0,0,0,.04)}
-.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid var(--rule)}
+.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid var(--rule);box-sizing:border-box}
 .logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;flex-shrink:0}
 .logo img{width:32px;height:32px;object-fit:contain;flex-shrink:0}
 .logo-t{font-weight:700;font-size:.95rem;color:var(--ink);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
@@ -60,10 +60,10 @@ section{padding:6rem 3rem}
 /* Bauhaus accent: large partial circle behind services */
 .svc-geo{position:absolute;left:-200px;bottom:-200px;width:500px;height:500px;border-radius:50%;border:1.5px solid var(--rule);pointer-events:none;opacity:.4}
 .svc .mx{position:relative;z-index:1}
-.svc-top{margin-bottom:3.5rem}
-.svc-conv{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;color:var(--ink);line-height:1.2;letter-spacing:-.02em}
+.svc-top{margin-bottom:3.5rem; display:block; width:100%;}
+.svc-conv{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;color:var(--ink);line-height:1.2;letter-spacing:-.02em; display:block;}
 .svc-conv b{color:var(--az);font-weight:700}
-.svc-sub{font-size:.86rem;color:var(--mid);line-height:1.7;max-width:440px;margin-top:.5rem}
+.svc-sub{font-size:.86rem;color:var(--mid);line-height:1.7;max-width:440px;margin-top:.5rem; display:block; width:100%;}
 .sg{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .sc{padding:2.5rem 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:80px 1fr;gap:1.5rem;align-items:start}
 .sc:nth-child(2n){padding-left:3rem;border-left:1px solid var(--rule);margin-left:-1px}
@@ -219,7 +219,7 @@ section{padding:6rem 3rem}
   <div class="mx rv">
     <div class="lb">Services</div>
     <div class="svc-top">
-      <p class="svc-conv">Good businesses need more than <b>capital.</b></p>
+      <h2 class="svc-conv">Good businesses need more than <b>capital.</b></h2>
       <p class="svc-sub">What we do.</p>
     </div>
     <div class="sg">
