@@ -60,10 +60,10 @@ section{padding:6rem 3rem}
 /* Bauhaus accent: large partial circle behind services */
 .svc-geo{position:absolute;left:-200px;bottom:-200px;width:500px;height:500px;border-radius:50%;border:1.5px solid var(--rule);pointer-events:none;opacity:.4}
 .svc .mx{position:relative;z-index:1}
-.svc-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
+.svc-top{margin-bottom:3.5rem}
 .svc-conv{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;color:var(--ink);line-height:1.2;letter-spacing:-.02em}
 .svc-conv b{color:var(--az);font-weight:700}
-.svc-sub{font-size:.86rem;color:var(--mid);line-height:1.7;max-width:360px}
+.svc-sub{font-size:.86rem;color:var(--mid);line-height:1.7;max-width:440px;margin-top:.5rem}
 .sg{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .sc{padding:2.5rem 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:80px 1fr;gap:1.5rem;align-items:start}
 .sc:nth-child(2n){padding-left:3rem;border-left:1px solid var(--rule);margin-left:-1px}
@@ -158,7 +158,6 @@ section{padding:6rem 3rem}
   .hero-circle{width:350px;height:350px;right:-100px}
   .nl{display:none}
   .hm{display:flex}
-  .svc-top{grid-template-columns:1fr;gap:1.5rem}
   .sg{grid-template-columns:1fr}
   .sc,.sc:nth-child(2n){padding:1.5rem 0;border-left:none;margin-left:0;padding-left:0;padding-right:0}
   .apg{grid-template-columns:1fr}
@@ -176,8 +175,7 @@ section{padding:6rem 3rem}
   .sc{grid-template-columns:50px 1fr;gap:1rem}
 }
 
-.rv{opacity:0;transform:translateY(16px);transition:opacity .55s,transform .55s}
-.rv.vi{opacity:1;transform:translateY(0)}
+.rv{opacity:1}
 </style>
 </head>
 <body>
@@ -221,12 +219,8 @@ section{padding:6rem 3rem}
   <div class="mx rv">
     <div class="lb">Services</div>
     <div class="svc-top">
-      <div>
-        <p class="svc-conv">Good businesses need more than <b>capital.</b></p>
-      </div>
-      <div>
-        <p class="svc-sub">What we do.</p>
-      </div>
+      <p class="svc-conv">Good businesses need more than <b>capital.</b></p>
+      <p class="svc-sub">What we do.</p>
     </div>
     <div class="sg">
       <div class="sc">
