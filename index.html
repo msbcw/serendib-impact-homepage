@@ -18,10 +18,10 @@ a:hover{color:var(--azd)}
 /* NAV */
 .nv{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .nv.sc{box-shadow:0 1px 12px rgba(0,0,0,.04)}
-.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nv-in{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:60px;width:100%}
 .logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
 .logo img{width:28px;height:28px;object-fit:contain}
-.logo-t{font-weight:700;font-size:.85rem;color:var(--ink);letter-spacing:.08em;text-transform:uppercase}
+.logo-t{font-weight:700;font-size:1rem;color:var(--ink);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .logo-t b{color:var(--az);font-weight:700}
 .nl{display:flex;gap:2.2rem;list-style:none;align-items:center}
 .nl a{font-size:.68rem;font-weight:600;color:var(--mid);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:color .2s}
@@ -60,10 +60,10 @@ section{padding:6rem 3rem}
 /* Bauhaus accent: large partial circle behind services */
 .svc-geo{position:absolute;left:-200px;bottom:-200px;width:500px;height:500px;border-radius:50%;border:1.5px solid var(--rule);pointer-events:none;opacity:.4}
 .svc .mx{position:relative;z-index:1}
-.svc-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
+.svc-top{margin-bottom:3.5rem}
 .svc-conv{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;color:var(--ink);line-height:1.2;letter-spacing:-.02em}
 .svc-conv b{color:var(--az);font-weight:700}
-.svc-sub{font-size:.86rem;color:var(--mid);line-height:1.7;max-width:360px}
+.svc-sub{font-size:.86rem;color:var(--mid);line-height:1.7;max-width:440px;margin-top:.5rem}
 .sg{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .sc{padding:2.5rem 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:80px 1fr;gap:1.5rem;align-items:start}
 .sc:nth-child(2n){padding-left:3rem;border-left:1px solid var(--rule);margin-left:-1px}
@@ -221,12 +221,8 @@ section{padding:6rem 3rem}
   <div class="mx rv">
     <div class="lb">Services</div>
     <div class="svc-top">
-      <div>
-        <p class="svc-conv">Good businesses need more than <b>capital.</b></p>
-      </div>
-      <div>
-        <p class="svc-sub">What we do.</p>
-      </div>
+      <p class="svc-conv">Good businesses need more than <b>capital.</b></p>
+      <h2 style="font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;margin-top:1.2rem">What we do.</h2>
     </div>
     <div class="sg">
       <div class="sc">
