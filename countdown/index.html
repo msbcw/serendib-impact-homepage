@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Countdown to 30 November</title>
+<meta name="description" content="Countdown to the last day at Malteser International, Monday 30 November 2026, 17:00 Cologne time.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#161A3D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="30 Nov">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: "Bodoni Moda";
+    src: url("fonts/bodoni-moda.woff2") format("woff2");
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Hanken Grotesk";
+    src: url("fonts/hanken-grotesk.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    /* Palette: pre-dawn over the Indian Ocean, with a king-coconut sun */
+    --foam: #EEF1EC;
+    --foam-soft: rgba(238, 241, 236, 0.74);
+    --thambili: #F4A62A;
+
+    /* Set from script as the month runs down */
+    --p: 0.6;
+    --sky-top: #161A3D;
+    --sky-low: #2E2B63;
+    --sea: #0C1E38;
+    --glow-a: 0.3;
+    --sink: 0px;
+
+    --serif: "Bodoni Moda", "Bodoni 72", Didot, "Bodoni MT", Georgia, serif;
+    --sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --pad: clamp(1.25rem, 6vw, 5rem);
+    --sun: clamp(7.5rem, 30vw, 19rem);
+    --sun-right: calc(var(--pad) + 2vw);
+    --figure-size: clamp(7rem, 40vw, 17rem);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { min-height: 100%; background: var(--sea); }
+
+  body {
+    color: var(--foam);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .scene {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+
+  /* ---------- Sky ---------- */
+
+  .sky {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: calc(var(--pad) + env(safe-area-inset-top)) var(--pad) 0;
+    background:
+      radial-gradient(
+        ellipse calc(var(--sun) * 2.6) calc(var(--sun) * 1.5)
+        at calc(100% - var(--sun-right) - var(--sun) / 2) 100%,
+        rgba(245, 181, 133, var(--glow-a)),
+        rgba(245, 181, 133, 0) 72%
+      ),
+      linear-gradient(to bottom, var(--sky-top), var(--sky-low));
+  }
+
+  .sun-layer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .sun {
+    position: absolute;
+    right: var(--sun-right);
+    width: var(--sun);
+    height: var(--sun);
+    border-radius: 50%;
+    bottom: calc(var(--sun) * (var(--p) * 1.2 - 1));
+    background: radial-gradient(circle at 50% 42%, #F9BF52 0%, var(--thambili) 52%, #E3851C 100%);
+    box-shadow: 0 0 calc(var(--sun) * 0.45) calc(var(--sun) * 0.06) rgba(244, 166, 42, 0.26);
+  }
+
+  .cross {
+    position: absolute;
+    inset: 22%;
+    width: 56%;
+    height: 56%;
+    fill: #FFFFFF;
+  }
+
+  .lede {
+    position: relative;
+    max-width: 30ch;
+    margin-bottom: clamp(0.25rem, 1.5vh, 1rem);
+    font-size: clamp(1.0625rem, 0.95rem + 0.55vw, 1.375rem);
+    font-weight: 450;
+    line-height: 1.35;
+    color: var(--foam-soft);
+  }
+
+  .figure {
+    position: relative;
+    font-family: var(--serif);
+    font-size: var(--figure-size);
+    font-weight: 500;
+    font-variant-numeric: lining-nums;
+    line-height: 0.8;
+    letter-spacing: -0.02em;
+    transform: translateY(var(--sink));
+  }
+
+  /* ---------- Sea ---------- */
+
+  .sea {
+    position: relative;
+    min-height: 38vh;
+    min-height: 38svh;
+    padding: 0 var(--pad) calc(var(--pad) + env(safe-area-inset-bottom));
+    background: var(--sea);
+    overflow: hidden;
+  }
+
+  .glints {
+    position: absolute;
+    top: 0;
+    right: calc(var(--sun-right) + var(--sun) * 0.1);
+    width: calc(var(--sun) * 0.8);
+    height: calc(var(--figure-size) * 0.55);
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(244, 166, 42, 0.85) 0 2px,
+      rgba(244, 166, 42, 0) 2px 11px
+    );
+    -webkit-mask-image: radial-gradient(ellipse 50% 100% at 50% 0, #000 10%, transparent 100%);
+            mask-image: radial-gradient(ellipse 50% 100% at 50% 0, #000 10%, transparent 100%);
+    opacity: calc(var(--p) * 0.5);
+    transform-origin: 50% 0;
+    animation: swell 5s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  @keyframes swell {
+    from { transform: scaleX(0.86); }
+    to   { transform: scaleX(1.06); }
+  }
+
+  .reflection {
+    position: relative;
+    height: calc(var(--figure-size) * 0.42);
+    overflow: hidden;
+    font-family: var(--serif);
+    font-size: var(--figure-size);
+    font-weight: 500;
+    font-variant-numeric: lining-nums;
+    line-height: 0.8;
+    letter-spacing: -0.02em;
+    color: var(--foam);
+    opacity: 0.16;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+    user-select: none;
+  }
+
+  .reflection span {
+    display: block;
+    transform: translateY(calc(var(--sink) * -1)) scaleY(-1);
+  }
+
+  .details {
+    position: relative;
+    max-width: 40rem;
+  }
+
+  .clock {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 1.2rem + 2.6vw, 3rem);
+    font-weight: 500;
+    line-height: 1.1;
+    font-variant-numeric: lining-nums;
+    margin-bottom: clamp(1rem, 3vh, 1.75rem);
+  }
+
+  .clock .seg { white-space: nowrap; margin-right: 0.35em; }
+  .clock .seg:last-child { margin-right: 0; }
+
+  .clock .d {
+    display: inline-block;
+    width: 0.62em;
+    text-align: center;
+  }
+
+  .clock .u {
+    font-family: var(--sans);
+    font-size: 0.42em;
+    font-weight: 450;
+    color: var(--foam-soft);
+    margin-left: 0.2em;
+  }
+
+  .note {
+    max-width: 34rem;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    color: var(--foam-soft);
+  }
+
+  .note + .note { margin-top: 0.5em; }
+
+  .note strong { font-weight: 600; color: var(--foam); }
+
+  [hidden] { display: none !important; }
+
+  @media (min-width: 900px) and (min-height: 600px) {
+    .sea { min-height: 34vh; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glints { animation: none; transform: none; }
+  }
+</style>
+</head>
+<body>
+<main class="scene">
+  <section class="sky">
+    <div class="sun-layer" aria-hidden="true">
+      <div class="sun">
+        <svg class="cross" viewBox="0 0 100 100">
+          <path id="arm" d="M50 50 L30 5 L50 19 L70 5 Z"/>
+          <use href="#arm" transform="rotate(90 50 50)"/>
+          <use href="#arm" transform="rotate(180 50 50)"/>
+          <use href="#arm" transform="rotate(270 50 50)"/>
+        </svg>
+      </div>
+    </div>
+    <p class="lede" id="lede">Days left at Malteser International</p>
+    <p class="figure" id="figure">11</p>
+  </section>
+
+  <section class="sea">
+    <div class="glints" aria-hidden="true"></div>
+    <div class="reflection" aria-hidden="true"><span id="reflection">11</span></div>
+
+    <div class="details">
+      <p class="clock" id="clock"></p>
+      <p class="note" id="when">Ends Monday 30 November, 17:00 in Cologne.</p>
+      <p class="note" id="weekdays"></p>
+      <p class="note" id="next">Then full time on Southern Innovation Hub and Serendib Impact.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+  // ---- Settings ---------------------------------------------------------
+  // Change these if the date or time moves.
+  const CONFIG = {
+    end:   "2026-11-30T17:00:00+01:00",   // last day, end of business (Cologne)
+    start: "2026-11-01T00:00:00+01:00",   // the sun starts rising from here
+    home:  { label: "Cologne", tz: "Europe/Berlin" },  // working days follow this clock
+    also:  { label: "Colombo", tz: "Asia/Colombo" },
+  };
+  // -----------------------------------------------------------------------
+
+  const END = Date.parse(CONFIG.end);
+  const START = Date.parse(CONFIG.start);
+  const DAY = 864e5, HOUR = 36e5, MIN = 6e4, SEC = 1e3;
+
+  // ?now=2026-11-30T18:00:00+05:30 previews the page at another moment
+  const params = new URLSearchParams(location.search);
+  const forced = Date.parse(params.get("now") || "");
+  const skew = Number.isNaN(forced) ? 0 : forced - Date.now();
+  const now = () => Date.now() + skew;
+
+  const $ = (id) => document.getElementById(id);
+  const root = document.documentElement;
+
+  // ---- Time-zone helpers ------------------------------------------------
+  const partsFmt = new Intl.DateTimeFormat("en-GB", {
+    timeZone: CONFIG.home.tz, year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+  });
+  function homeParts(ms) {
+    const o = {};
+    for (const p of partsFmt.formatToParts(ms)) o[p.type] = p.value;
+    return { y: +o.year, m: +o.month, d: +o.day, mins: +o.hour * 60 + +o.minute };
+  }
+  const dateFmt = new Intl.DateTimeFormat("en-GB", {
+    timeZone: CONFIG.home.tz, weekday: "long", day: "numeric", month: "long",
+  });
+  const timeFmt = (tz) => new Intl.DateTimeFormat("en-GB", {
+    timeZone: tz, hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+  });
+  const endDate = dateFmt.format(END);
+  const endHome = timeFmt(CONFIG.home.tz).format(END);
+  const endAlso = timeFmt(CONFIG.also.tz).format(END);
+
+  // Weekdays (Mon–Fri) from today to the last day, in home time.
+  // Today counts until the same clock time as the deadline.
+  function weekdaysLeft(t) {
+    const a = homeParts(t), b = homeParts(END);
+    const today = Date.UTC(a.y, a.m - 1, a.d);
+    const last = Date.UTC(b.y, b.m - 1, b.d);
+    let n = 0, countsToday = false;
+    for (let x = today; x <= last; x += DAY) {
+      const dow = new Date(x).getUTCDay();
+      if (dow === 0 || dow === 6) continue;
+      if (x === today) {
+        if (a.mins >= b.mins) continue;
+        countsToday = true;
+      }
+      n++;
+    }
+    return { n, countsToday, isLastDay: today === last };
+  }
+
+  // ---- Colour ----------------------------------------------------------
+  const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+  function mix(h1, h2, t) {
+    const a = hex(h1), b = hex(h2);
+    return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(",")})`;
+  }
+  function paint(p) {
+    const t = Math.pow(p, 1.35);
+    root.style.setProperty("--p", p.toFixed(4));
+    root.style.setProperty("--sky-top", mix("#161A3D", "#2D4B7E", t));
+    root.style.setProperty("--sky-low", mix("#2E2B63", "#8C6C9C", t));
+    root.style.setProperty("--sea", mix("#0C1E38", "#17385E", t));
+    root.style.setProperty("--glow-a", (0.15 + 0.6 * t).toFixed(3));
+    document.body.style.background = getComputedStyle(root).getPropertyValue("--sea");
+  }
+
+  // ---- Rendering -------------------------------------------------------
+  const pad = (n) => String(n).padStart(2, "0");
+  const digits = (s) => [...s].map((c) => `<span class="d">${c}</span>`).join("");
+  const seg = (v, unit) =>
+    `<span class="seg">${digits(pad(v))}<span class="u">${unit}</span></span>`;
+  const plural = (n, one, many) => (n === 1 ? one : many);
+
+  let lastFigure = null;
+  function setFigure(text) {
+    if (text === lastFigure) return;
+    lastFigure = text;
+    $("figure").textContent = text;
+    $("reflection").textContent = text;
+    measureSink();
+  }
+
+  // Shift the big number so its baseline sits exactly on the horizon,
+  // whatever font ends up rendering it.
+  function measureSink() {
+    const fig = $("figure");
+    const probe = document.createElement("span");
+    probe.style.cssText = "display:inline-block;width:0;height:0;vertical-align:baseline";
+    fig.appendChild(probe);
+    const sink = fig.getBoundingClientRect().bottom - probe.getBoundingClientRect().bottom;
+    probe.remove();
+    root.style.setProperty("--sink", `${sink.toFixed(2)}px`);
+  }
+
+  function render() {
+    const t = now();
+    const left = END - t;
+
+    if (left > 0) {
+      paint(Math.min(1, Math.max(0, (t - START) / (END - START))));
+
+      const d = Math.floor(left / DAY);
+      const h = Math.floor((left % DAY) / HOUR);
+      const m = Math.floor((left % HOUR) / MIN);
+      const s = Math.floor((left % MIN) / SEC);
+
+      let lede, figure, clock;
+      if (d >= 1) {
+        lede = plural(d, "Day", "Days");
+        figure = d;
+        clock = seg(h, "h") + seg(m, "min") + seg(s, "s");
+      } else if (h >= 1) {
+        lede = plural(h, "Hour", "Hours");
+        figure = h;
+        clock = seg(m, "min") + seg(s, "s");
+      } else if (m >= 1) {
+        lede = plural(m, "Minute", "Minutes");
+        figure = m;
+        clock = seg(s, "s");
+      } else {
+        lede = plural(s, "Second", "Seconds");
+        figure = s;
+        clock = "";
+      }
+      $("lede").textContent = `${lede} left at Malteser International`;
+      setFigure(String(figure));
+      $("clock").innerHTML = clock;
+      $("clock").hidden = !clock;
+
+      $("when").innerHTML =
+        `Ends ${endDate}, <strong>${endHome}</strong> in ${CONFIG.home.label} ` +
+        `(${endAlso} in ${CONFIG.also.label}).`;
+
+      const w = weekdaysLeft(t);
+      let wtext;
+      if (w.isLastDay) wtext = "Today is the last day.";
+      else wtext = `${w.n} ${plural(w.n, "weekday", "weekdays")} left` +
+                   (w.countsToday ? ", counting today." : ".");
+      $("weekdays").textContent = wtext;
+      $("weekdays").hidden = false;
+      $("next").textContent = "Then full time on Southern Innovation Hub and Serendib Impact.";
+
+      document.title = d >= 1
+        ? `${d}d ${pad(h)}:${pad(m)} left at MI`
+        : `${pad(h)}:${pad(m)}:${pad(s)} left at MI`;
+    } else {
+      // After the deadline: count the days of the new chapter instead.
+      paint(1);
+      const day = Math.floor(-left / DAY) + 1;
+      $("lede").textContent = "Days full time on Southern Innovation Hub and Serendib Impact";
+      setFigure(String(day));
+      $("clock").hidden = true;
+      $("when").textContent =
+        `Started ${endDate}, ${endHome} in ${CONFIG.home.label}, after leaving Malteser International.`;
+      $("weekdays").hidden = true;
+      $("next").textContent = "";
+      document.title = `Day ${day}: SIH and Serendib Impact`;
+    }
+  }
+
+  function tick() {
+    render();
+    setTimeout(tick, SEC - (now() % SEC) + 15);
+  }
+
+  tick();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureSink);
+  addEventListener("resize", measureSink);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) render(); });
+</script>
+<noscript>
+  <p style="padding:2rem;font-family:sans-serif">Last day at Malteser International: Monday 30 November 2026, 17:00 in Cologne.</p>
+</noscript>
+</body>
+</html>
